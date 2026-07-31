@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <title>Blog & Guide per Studi Dentistici - Dentis AI</title>
+    
+    <link rel="icon" href="https://dentis.rmstudio.app/favicon.ico" sizes="any">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- SCHEMA.ORG (SEO/GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Dentis AI Blog",
+      "url": "https://blogs.rmstudio.app/dentis",
+      "description": "Articoli, ricerche e guide pratiche sull'Intelligenza Artificiale per la gestione delle chiamate e la segreteria degli studi dentistici."
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --accent: #38bdf8;
+            --bg: #0a0a0a;
+            --card: #141414;
+            --border: #262626;
+            --text: #ffffff;
+            --subtext: #a3a3a3;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 80px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        header {
+            background: rgba(10, 10, 10, 0.95); padding: 18px 30px; border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(12px);
+        }
+        .logo { font-weight: 800; font-size: 1.2rem; text-transform: uppercase; color: white; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--primary); }
+        .badge-saas { background: rgba(2, 132, 199, 0.15); border: 1px solid var(--primary); color: var(--accent); font-size: 0.7rem; padding: 3px 8px; border-radius: 12px; font-weight: 600; }
+
+        .nav-links { display: flex; gap: 12px; }
+        .nav-btn { border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; color: #ccc; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .nav-btn:hover { border-color: var(--primary); color: white; background: rgba(2, 132, 199, 0.1); }
+        .nav-btn.primary { background: var(--primary); border-color: var(--primary); color: white; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hero { text-align: center; margin: 40px 0 30px 0; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 12px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.05rem; color: var(--subtext); max-width: 650px; margin: 0 auto; }
+
+        /* WIDGET CALCOLATORE ROI (Dwell Time Engagement) */
+        .calc-widget {
+            background: linear-gradient(135deg, #111827 0%, #0f172a 100%);
+            border: 1px solid var(--primary);
+            border-radius: 16px; padding: 25px; margin: 30px 0 40px 0;
+            display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.15);
+        }
+        .calc-info { max-width: 500px; }
+        .calc-info h3 { font-size: 1.3rem; color: white; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .calc-info p { font-size: 0.9rem; color: var(--subtext); }
+        .calc-box { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 450px; }
+        .slider-group { display: flex; flex-direction: column; gap: 6px; }
+        .slider-label { display: flex; justify-content: space-between; font-size: 0.85rem; color: #e2e8f0; font-weight: 600; }
+        input[type=range] { width: 100%; accent-color: var(--primary); cursor: pointer; }
+        .calc-result { background: rgba(2, 132, 199, 0.2); border: 1px dashed var(--accent); padding: 12px; border-radius: 10px; text-align: center; font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+
+        /* GRIGLIA ARTICOLI */
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: 0.3s ease; display: flex; flex-direction: column; height: 100%; }
+        .card:hover { transform: translateY(-6px); border-color: var(--primary); box-shadow: 0 12px 25px rgba(0,0,0,0.5); }
+        .card-img { height: 200px; background-size: cover; background-position: center; position: relative; }
+        .card-tag { position: absolute; top: 12px; left: 12px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; }
+        .card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-date { color: var(--subtext); font-size: 0.8rem; margin-bottom: 8px; }
+        .card-title { font-size: 1.2rem; font-weight: 700; color: white; line-height: 1.35; margin-bottom: 12px; }
+        .card-excerpt { color: var(--subtext); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+        .card-link { color: var(--accent); font-weight: 700; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-top: auto; }
+
+        /* FLOATING NEURO LEAD MAGNET */
+        .lead-bar {
+            position: fixed; bottom: 20px; right: 20px; z-index: 999;
+            background: #0f172a; border: 1px solid var(--primary);
+            border-radius: 16px; padding: 18px 22px; max-width: 380px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            display: flex; flex-direction: column; gap: 10px;
+            animation: slideUp 0.5s ease-out;
+        }
+        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .lead-bar h4 { font-size: 0.98rem; color: white; display: flex; align-items: center; justify-content: space-between; }
+        .lead-bar p { font-size: 0.82rem; color: var(--subtext); }
+        .lead-form { display: flex; flex-direction: column; gap: 8px; margin-top: 5px; }
+        .lead-input { background: #1e293b; border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px; color: white; font-size: 0.85rem; outline: none; }
+        .lead-btn { background: var(--primary); color: white; border: none; padding: 9px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: 0.2s; }
+        .lead-btn:hover { background: #0369a1; }
+        .close-lead { cursor: pointer; color: var(--subtext); font-size: 0.9rem; }
+
+        footer { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid var(--border); color: var(--subtext); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="https://dentis.rmstudio.app" class="logo">
+        Dentis <span>AI</span>
+        <span class="badge-saas">Blog Odontoiatria</span>
+    </a>
+    <div class="nav-links">
+        <a href="../index.html" class="nav-btn"><i class="fas fa-th"></i> Master Hub</a>
+        <a href="https://dentis.rmstudio.app" class="nav-btn primary"><i class="fas fa-phone-alt"></i> Prova Serena H24</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="hero">
+        <h1>Integrazione <span>IA & Segreteria</span> Odontoiatrica</h1>
+        <p>Soluzioni e casi pratici per azzerare le chiamate perse e ottimizzare la gestione dei pazienti.</p>
+    </div>
+
+    <!-- CALCOLATORE INTERATTIVO (DWELL TIME ENGAGEMENT) -->
+    <div class="calc-widget">
+        <div class="calc-info">
+            <h3><i class="fas fa-calculator" style="color:var(--accent);"></i> Calcola le Ore Persa in Studio</h3>
+            <p>Seleziona i volumi del tuo studio e scopri quante chiamate dei pazienti rimangono senza risposta fuori orario ogni mese.</p>
+        </div>
+        <div class="calc-box">
+            <div class="slider-group">
+                <div class="slider-label"><span>Chiamate ricevute al giorno:</span> <span id="valCalls">40</span></div>
+                <input type="range" id="sliderCalls" min="10" max="150" value="40" oninput="updateCalc()">
+            </div>
+            <div class="calc-result" id="calcOutput">
+                🚨 Stima: ~24 chiamate e 3.5 ore perse ogni mese
+            </div>
+        </div>
+    </div>
+
+    <div class="articles-grid" id="dentisGrid"></div>
+</div>
+
+<!-- FLOATING NEURO LEAD MAGNET (Zero Attrito) -->
+<div class="lead-bar" id="leadBar">
+    <h4>
+        <span>🎁 Report Gratuito PDF 2026</span>
+        <i class="fas fa-times close-lead" onclick="document.getElementById('leadBar').style.display='none'"></i>
+    </h4>
+    <p>Ricevi la guida pratica: <i>"Come azzerare le lamentele dei pazienti e gestire le urgenze H24"</i>.</p>
+    <form class="lead-form" onsubmit="submitLead(event)">
+        <input type="text" id="leadName" class="lead-input" placeholder="Il tuo Nome" required>
+        <input type="email" id="leadEmail" class="lead-input" placeholder="La tua Email professionale" required>
+        <button type="submit" class="lead-btn">Scarica Report PDF <i class="fas fa-download"></i></button>
+    </form>
+</div>
+
+<footer>
+    &copy; 2026 Dentis AI di RM Studio - <a href="https://dentis.rmstudio.app" style="color:var(--accent);">Torna a Dentis.rmstudio.app</a>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async function() {
+        try {
+            const res = await fetch('posts.json');
+            const posts = await res.json();
+            const grid = document.getElementById('dentisGrid');
+            grid.innerHTML = "";
+
+            if(posts.length === 0) {
+                grid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#888;'>Nessun articolo pubblicato.</p>";
+                return;
+            }
+
+            posts.forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <a href="${post.url}" style="display:flex; flex-direction:column; height:100%;">
+                        <div class="card-img" style="background-image: url('${post.image}')">
+                            <span class="card-tag">${post.category}</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-date"><i class="far fa-calendar-alt"></i> ${post.date}</div>
+                            <h2 class="card-title">${post.title}</h2>
+                            <p class="card-excerpt">${post.excerpt}</p>
+                            <div class="card-link">Leggi Articolo <i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+        } catch(e) {
+            console.error("Errore nel caricamento dei post di Dentis:", e);
+        }
+    });
+
+    function updateCalc() {
+        const calls = document.getElementById('sliderCalls').value;
+        document.getElementById('valCalls').textContent = calls;
+        const missedPerMonth = Math.round(calls * 0.20 * 30);
+        const hoursLost = (missedPerMonth * 8 / 60).toFixed(1);
+        document.getElementById('calcOutput').innerHTML = `🚨 Stima: ~${missedPerMonth} chiamate perse e ${hoursLost} ore sprecate/mese`;
+    }
+
+    async function submitLead(e) {
+        e.preventDefault();
+        const name = document.getElementById('leadName').value;
+        const email = document.getElementById('leadEmail').value;
+        
+        try {
+            // Webhook n8n di ricezione Lead Dentis
+            await fetch('https://hetzner.rmstudio.app/webhook/dentis-lead-newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'json' },
+                body: JSON.stringify({ name, email, saas: 'dentis', source: 'blog_lead_magnet' })
+            });
+            alert('🎉 Grazie! Il Report PDF è stato inviato alla tua e-mail.');
+            document.getElementById('leadBar').style.display = 'none';
+        } catch(err) {
+            alert('Report registrato con successo! Ti invieremo il PDF a breve.');
+            document.getElementById('leadBar').style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
