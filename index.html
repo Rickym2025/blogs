@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <title>RM Studio - Master Blog Hub | Intelligenza Artificiale B2B</title>
+    
+    <link rel="icon" href="https://rmstudio.app/favicon.ico" sizes="any">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- DATI STRUTTURATI JSON-LD (SEO/GEO Google 2026) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "RM Studio Master Blog Hub",
+      "url": "https://rmstudio.app/blog",
+      "description": "Notizie, guide e approfondimenti sull'Intelligenza Artificiale applicata alle aziende B2B.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "RM Studio",
+        "url": "https://rmstudio.app"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #0693e3;
+            --accent: #00e1ff;
+            --bg: #0a0a0a;
+            --card: #141414;
+            --border: #262626;
+            --text: #ffffff;
+            --subtext: #a3a3a3;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* HEADER */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 18px 30px;
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(12px);
+        }
+        .logo { font-weight: 800; font-size: 1.2rem; text-transform: uppercase; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); }
+        .badge-master { background: rgba(6, 147, 227, 0.15); border: 1px solid var(--primary); color: var(--accent); font-size: 0.7rem; padding: 3px 8px; border-radius: 12px; font-weight: 600; }
+
+        .nav-links { display: flex; gap: 12px; }
+        .nav-btn { border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; color: #ccc; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .nav-btn:hover { border-color: var(--primary); color: white; background: rgba(6, 147, 227, 0.1); }
+        .nav-btn.primary { background: var(--primary); border-color: var(--primary); color: white; }
+
+        /* HERO SECTION */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hero { text-align: center; margin: 50px 0 30px 0; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; color: white; line-height: 1.2; margin-bottom: 15px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.1rem; color: var(--subtext); max-width: 700px; margin: 0 auto; }
+
+        /* CONTROLLI E FILTRI */
+        .controls-bar { margin-bottom: 40px; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+        .search-box { position: relative; width: 100%; max-width: 500px; }
+        .search-box input { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 25px; padding: 12px 20px 12px 45px; color: white; font-size: 0.95rem; font-family: inherit; outline: none; transition: 0.3s; }
+        .search-box input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(6, 147, 227, 0.2); }
+        .search-box i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--subtext); }
+
+        .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .filter-btn { background: var(--card); border: 1px solid var(--border); color: #ccc; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary); border-color: var(--primary); color: white; transform: translateY(-2px); }
+
+        /* GRIGLIA ARTICOLI */
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: 0.3s ease; display: flex; flex-direction: column; height: 100%; }
+        .card:hover { transform: translateY(-6px); border-color: var(--primary); box-shadow: 0 12px 25px rgba(0,0,0,0.5); }
+        .card-img { height: 200px; background-size: cover; background-position: center; position: relative; }
+        .card-tag { position: absolute; top: 12px; left: 12px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; }
+        .card-saas { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.75); color: var(--accent); border: 1px solid var(--accent); font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; backdrop-filter: blur(4px); }
+        
+        .card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-date { color: var(--subtext); font-size: 0.8rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .card-title { font-size: 1.2rem; font-weight: 700; color: white; line-height: 1.35; margin-bottom: 12px; }
+        .card-excerpt { color: var(--subtext); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+        .card-link { color: var(--accent); font-weight: 700; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-top: auto; }
+        .card:hover .card-link { gap: 10px; }
+
+        /* PAGINAZIONE */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 50px; }
+        .page-btn { background: var(--card); border: 1px solid var(--border); color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .page-btn:hover, .page-btn.active { background: var(--primary); border-color: var(--primary); }
+
+        footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--border); color: var(--subtext); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="https://rmstudio.app" class="logo">
+        RM <span>Studio</span>
+        <span class="badge-master">Master Blog Hub</span>
+    </a>
+    <div class="nav-links">
+        <a href="https://rmstudio.app" class="nav-btn"><i class="fas fa-arrow-left"></i> RMStudio.app</a>
+        <a href="https://portale.rmstudio.app/mobile.html" class="nav-btn primary" target="_blank"><i class="fas fa-rocket"></i> Sales Launcher</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="hero">
+        <h1>L'Ecosistema dell'<span>AI B2B</span></h1>
+        <p>Guide pratiche, casi studio ed evoluzione tecnologica per professionisti, aziende e attività locali.</p>
+    </div>
+
+    <div class="controls-bar">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Cerca tra le novità di tutti i SaaS (es. Dentisti, Video, E-Bike)...">
+        </div>
+        <div class="filters" id="saasFilters">
+            <button class="filter-btn active" onclick="filterSaaS('all')">Tutti i SaaS</button>
+        </div>
+    </div>
+
+    <div class="articles-grid" id="articlesGrid"></div>
+    <div class="pagination" id="paginationControls"></div>
+</div>
+
+<footer>
+    &copy; 2026 RM Studio di Riccardo Modena - Tutti i diritti riservati.
+</footer>
+
+<script>
+    const itemsPerPage = 9;
+    let currentPage = 1;
+    let allPosts = [];
+    let filteredPosts = [];
+
+    document.addEventListener("DOMContentLoaded", async function() {
+        try {
+            const res = await fetch('manifest.json');
+            allPosts = await res.json();
+            filteredPosts = allPosts;
+            buildFilters();
+            renderGrid();
+        } catch (e) {
+            console.error("Errore nel caricamento del manifest:", e);
+            document.getElementById('articlesGrid').innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#888;'>Nessun articolo trovato.</p>";
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            filteredPosts = allPosts.filter(p => 
+                p.title.toLowerCase().includes(query) || 
+                p.excerpt.toLowerCase().includes(query) ||
+                p.category.toLowerCase().includes(query) ||
+                p.saas_label.toLowerCase().includes(query)
+            );
+            currentPage = 1;
+            renderGrid();
+        });
+    });
+
+    function buildFilters() {
+        const saasSet = new Set();
+        allPosts.forEach(p => saasSet.add(JSON.stringify({ id: p.saas, label: p.saas_label })));
+        
+        const filterContainer = document.getElementById('saasFilters');
+        saasSet.forEach(item => {
+            const parsed = JSON.parse(item);
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.textContent = parsed.label;
+            btn.onclick = () => filterSaaS(parsed.id, btn);
+            filterContainer.appendChild(btn);
+        });
+    }
+
+    function filterSaaS(saasId, btnElement) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        if (btnElement) btnElement.classList.add('active');
+        else document.querySelector('.filter-btn').classList.add('active');
+
+        if (saasId === 'all') {
+            filteredPosts = allPosts;
+        } else {
+            filteredPosts = allPosts.filter(p => p.saas === saasId);
+        }
+        currentPage = 1;
+        renderGrid();
+    }
+
+    function renderGrid() {
+        const grid = document.getElementById('articlesGrid');
+        grid.innerHTML = "";
+
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const pagePosts = filteredPosts.slice(start, end);
+
+        if (pagePosts.length === 0) {
+            grid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#888;'>Nessun articolo trovato.</p>";
+            document.getElementById('paginationControls').innerHTML = "";
+            return;
+        }
+
+        pagePosts.forEach(post => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <a href="${post.url}" style="display:flex; flex-direction:column; height:100%;">
+                    <div class="card-img" style="background-image: url('${post.image}')">
+                        <span class="card-tag">${post.category}</span>
+                        <span class="card-saas">${post.saas_label}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-date"><i class="far fa-calendar-alt"></i> ${formatDate(post.date)}</div>
+                        <h2 class="card-title">${post.title}</h2>
+                        <p class="card-excerpt">${post.excerpt}</p>
+                        <div class="card-link">Leggi Articolo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+            `;
+            grid.appendChild(card);
+        });
+
+        renderPagination();
+    }
+
+    function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+
+    function renderPagination() {
+        const controls = document.getElementById('paginationControls');
+        controls.innerHTML = "";
+        const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+
+        if (totalPages <= 1) return;
+
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+            btn.textContent = i;
+            btn.onclick = () => {
+                currentPage = i;
+                renderGrid();
+                window.scrollTo({ top: 300, behavior: 'smooth' });
+            };
+            controls.appendChild(btn);
+        }
+    }
+</script>
+
+</body>
+</html>
