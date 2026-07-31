@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "slug": "studio-dentistico-chiuso-gestione-urgenze-ia",
+    "saas": "dentis",
+    "saas_label": "Dentis AI",
+    "title": "Studio Dentistico Chiuso: Come Gestire le Urgenze dei Pazienti con l'Intelligenza Artificiale",
+    "excerpt": "Gestisci le urgenze dei pazienti senza intasare la segreteria con l'aiuto dell'IA...",
+    "category": "Odontoiatria",
+    "date": "2026-07-31",
+    "image": "dentis/img/studio-dentistico-chiuso-gestione-urgenze-ia.jpg",
+    "url": "dentis/studio-dentistico-chiuso-gestione-urgenze-ia.html"
+  }
+]
