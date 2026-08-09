@@ -1,5 +1,16 @@
 [
   {
+    "slug": "il-mercato-delle-auto-usate-in-italia",
+    "saas": "drivemotion",
+    "saas_label": "DriveMotion",
+    "title": "Il Mercato delle Auto Usate in Italia: Tendenze e Opportunità per i Concessionari",
+    "excerpt": "Gli italiani scelgono sempre più spesso auto usate, scopri come i concessionari possono approfittare di questa tendenza...",
+    "category": "Concessionari Auto",
+    "date": "2026-08-09",
+    "image": "drivemotion/img/il-mercato-delle-auto-usate-in-italia.jpg",
+    "url": "drivemotion/il-mercato-delle-auto-usate-in-italia.html"
+  },
+  {
     "slug": "mercato-immobiliare-trentino-hometour",
     "saas": "hometour",
     "saas_label": "HomeTour",
