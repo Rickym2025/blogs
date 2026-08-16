@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "title": "L'Evoluzione Digitale del Ricordino Funerario: Dal Cartaceo al Portale QR",
+    "slug": "evoluzione-ricordino-funerario-qr",
+    "excerpt": "Come le onoranze funebri d'eccellenza stanno trasformando una tradizione centenaria in uno spazio eterno di condivisione con mappa GPS, registro condoglianze e musica per i familiari.",
+    "category": "Innovazione Funeraria",
+    "date": "15 Agosto 2026",
+    "image": "https://images.unsplash.com/photo-1516550817367-6ac5e7aaedb7?auto=format&fit=crop&q=80&w=1200",
+    "url": "evoluzione-ricordino-funerario-qr.html"
+  },
+  {
+    "title": "Pet Memorial: Il Valore della Memoria per Cani, Gatti e Animali d'Affezione",
+    "slug": "pet-memorial-lutto-animali-affezione",
+    "excerpt": "Il lutto per un animale da compagnia richiede rispetto e delicatezza. Scopri come i centri di cremazione e le cliniche veterinarie adottano i memoriali digitali interattivi.",
+    "category": "Pet Memorial",
+    "date": "28 Luglio 2026",
+    "image": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=1200",
+    "url": "pet-memorial-lutto-animali-affezione.html"
+  },
+  {
+    "title": "Nel Silenzio di una Nota: La Musica Commemorativa nel Rito di Commiato",
+    "slug": "musica-commemorativa-rito-commiato",
+    "excerpt": "L'impatto neuroscientifico ed emotivo della composizione musicale su misura durante il funerale e nei memoriali perenni con il Maestro Fausto Fusetti di FF Edizioni.",
+    "category": "Musica & Emozione",
+    "date": "12 Giugno 2026",
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=1200",
+    "url": "musica-commemorativa-rito-commiato.html"
+  }
+]
