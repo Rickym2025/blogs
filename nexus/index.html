@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusAI Blog • Conversione Lead & Shadow-Proxy AI</title>
+    <meta name="description" content="Tecnologie di iniezione bot invisibile, abbattimento del bounce rate e automazione delle vendite H24 per siti web.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        :root { --primary: #06b6d4; --primary-glow: rgba(6, 182, 212, 0.2); --bg: #030712; --card: #0b1329; --border: #1e293b; --text: #e2e8f0; --subtext: #94a3b8; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 80px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        header { background: rgba(3, 7, 18, 0.95); padding: 18px 30px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(12px); flex-wrap: wrap; gap: 15px; }
+        .logo { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.5px; text-transform: uppercase; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 12px; }
+        .nav-btn { border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; color: #ccc; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .nav-btn:hover { border-color: var(--primary); color: white; }
+        .nav-btn.primary { background: var(--primary); border-color: var(--primary); color: #000; font-weight: 700; }
+
+        .hero { text-align: center; max-width: 800px; margin: 50px auto 40px auto; padding: 0 20px; }
+        .hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); color: white; margin-bottom: 15px; font-weight: 800; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--subtext); font-size: 1.05rem; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-top: 30px; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 10px 30px var(--primary-glow); }
+        
+        .card-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border); }
+        .card-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+        .card-meta { font-size: 0.8rem; color: var(--primary); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .card-title { font-size: 1.15rem; color: white; font-weight: 700; line-height: 1.35; margin-bottom: 12px; }
+        .card-excerpt { color: var(--subtext); font-size: 0.9rem; margin-bottom: 20px; flex: 1; line-height: 1.5; }
+        .read-more { color: var(--primary); font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px; }
+
+        .empty-state { text-align: center; padding: 60px 20px; color: var(--subtext); }
+        footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--border); color: var(--subtext); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">NEXUS<span>AI</span> BLOG</a>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-btn"><i class="fas fa-th"></i> Master Hub</a>
+            <a href="https://nexus.rmstudio.app" class="nav-btn primary" target="_blank"><i class="fas fa-robot"></i> Attiva NexusAI</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Conversion AI & <span>Sales Automation</span></h1>
+        <p>Come trasformare qualsiasi sito vetrina in un canale autonomo di acquisizione clienti H24 senza modificare una riga di codice.</p>
+    </section>
+
+    <main class="container">
+        <div id="articles-grid" class="articles-grid"></div>
+    </main>
+
+    <footer>
+        &copy; 2026 NexusAI • RM Studio — Tutti i diritti riservati
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const container = document.getElementById("articles-grid");
+            try {
+                const res = await fetch("posts.json?v=" + new Date().getTime());
+                const posts = await res.json();
+
+                if (!posts || posts.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state" style="grid-column: 1 / -1;">
+                            <i class="fas fa-comments" style="font-size: 3rem; margin-bottom: 15px; color: var(--primary);"></i>
+                            <h3>Nessun articolo pubblicato al momento</h3>
+                            <p>I nuovi approfondimenti sull'acquisizione lead arriveranno a breve.</p>
+                        </div>`;
+                    return;
+                }
+
+                container.innerHTML = posts.map(post => `
+                    <a href="${post.url || (post.slug + '.html')}" class="card">
+                        <img src="${post.image || ('img/' + post.slug + '.jpg')}" alt="${post.title}" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80'">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span>${post.category || 'Lead Generation'}</span>
+                                <span style="color: var(--subtext);">${post.date || ''}</span>
+                            </div>
+                            <h2 class="card-title">${post.title}</h2>
+                            <p class="card-excerpt">${post.excerpt ? post.excerpt.substring(0, 120) + '...' : ''}</p>
+                            <div class="read-more">Leggi Articolo <i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </a>
+                `).join("");
+
+            } catch(e) {
+                console.error("Errore nel caricamento di posts.json:", e);
+                container.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;"><p>Errore di caricamento degli articoli.</p></div>`;
+            }
+        });
+    </script>
+</body>
+</html>
