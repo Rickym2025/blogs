@@ -4,262 +4,579 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="origin-when-cross-origin" />
-    <title>RM Studio - Master Blog Hub | Intelligenza Artificiale B2B</title>
+    <title>RM Studio Master Blog Hub • Intelligenza Artificiale B2B</title>
+    <meta name="description" content="L'hub centrale degli approfondimenti B2B di RM Studio. Casi studio, guide pratiche ed evoluzione tecnologica per professionisti e aziende.">
     
-    <link rel="icon" href="https://rmstudio.app/favicon.ico" sizes="any">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Open Graph Social Tags -->
+    <meta property="og:title" content="RM Studio Master Blog Hub • Intelligenza Artificiale B2B">
+    <meta property="og:description" content="Guide pratiche, casi studio ed evoluzione tecnologica per professionisti, aziende e attività locali.">
+    <meta property="og:image" content="https://rmstudio.app/public/loghi/foto_riccardo.jpeg">
+    <meta property="og:url" content="https://blogs.rmstudio.app/">
 
-    <!-- DATI STRUTTURATI JSON-LD (SEO/GEO Google 2026) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "RM Studio Master Blog Hub",
-      "url": "https://rmstudio.app/blog",
-      "description": "Notizie, guide e approfondimenti sull'Intelligenza Artificiale applicata alle aziende B2B.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "RM Studio",
-        "url": "https://rmstudio.app"
-      }
-    }
-    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
         :root {
-            --primary: #0693e3;
-            --accent: #00e1ff;
-            --bg: #0a0a0a;
-            --card: #141414;
-            --border: #262626;
-            --text: #ffffff;
-            --subtext: #a3a3a3;
+            --primary: #0284c7;
+            --primary-hover: #38bdf8;
+            --accent: #f2d28b;
+            --bg-fallback: #06070a;
+            --card-bg: rgba(15, 17, 26, 0.88);
+            --card-hover: rgba(22, 26, 38, 0.95);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(2, 132, 199, 0.5);
+            --text: #e2e8f0;
+            --subtext: #94a3b8;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* HEADER */
-        header {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 18px 30px;
-            border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 100;
-            display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(12px);
+        /* SFONDO IMMERSIVO CON OVERLAY SCURO E PARALLASSE */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-fallback);
+            background-image: 
+                linear-gradient(180deg, rgba(6, 7, 10, 0.82) 0%, rgba(4, 5, 8, 0.94) 60%, rgba(3, 4, 6, 0.98) 100%),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
         }
-        .logo { font-weight: 800; font-size: 1.2rem; text-transform: uppercase; color: white; display: flex; align-items: center; gap: 10px; }
-        .logo span { color: var(--primary); }
-        .badge-master { background: rgba(6, 147, 227, 0.15); border: 1px solid var(--primary); color: var(--accent); font-size: 0.7rem; padding: 3px 8px; border-radius: 12px; font-weight: 600; }
 
-        .nav-links { display: flex; gap: 12px; }
-        .nav-btn { border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; color: #ccc; font-weight: 600; display: flex; align-items: center; gap: 8px; }
-        .nav-btn:hover { border-color: var(--primary); color: white; background: rgba(6, 147, 227, 0.1); }
-        .nav-btn.primary { background: var(--primary); border-color: var(--primary); color: white; }
+        a { text-decoration: none; color: inherit; transition: 0.25s; }
+
+        /* HEADER PULITO E SENZA STRUMENTI INTERNI */
+        header {
+            background: rgba(6, 7, 10, 0.85);
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(14px);
+            gap: 15px;
+        }
+
+        .brand-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-logo span {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            background: rgba(242, 210, 139, 0.12);
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(242, 210, 139, 0.3);
+        }
+
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-site {
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            color: #ccc;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .btn-site:hover {
+            border-color: var(--accent);
+            color: white;
+            background: rgba(242, 210, 139, 0.08);
+        }
 
         /* HERO SECTION */
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .hero { text-align: center; margin: 50px 0 30px 0; }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; color: white; line-height: 1.2; margin-bottom: 15px; }
-        .hero h1 span { color: var(--primary); }
-        .hero p { font-size: 1.1rem; color: var(--subtext); max-width: 700px; margin: 0 auto; }
+        .hero {
+            text-align: center;
+            max-width: 860px;
+            margin: 50px auto 30px auto;
+            padding: 0 20px;
+        }
 
-        /* CONTROLLI E FILTRI */
-        .controls-bar { margin-bottom: 40px; display: flex; flex-direction: column; gap: 20px; align-items: center; }
-        .search-box { position: relative; width: 100%; max-width: 500px; }
-        .search-box input { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 25px; padding: 12px 20px 12px 45px; color: white; font-size: 0.95rem; font-family: inherit; outline: none; transition: 0.3s; }
-        .search-box input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(6, 147, 227, 0.2); }
-        .search-box i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--subtext); }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(2, 132, 199, 0.15);
+            color: var(--primary-hover);
+            border: 1px solid rgba(2, 132, 199, 0.3);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
 
-        .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        .filter-btn { background: var(--card); border: 1px solid var(--border); color: #ccc; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
-        .filter-btn:hover, .filter-btn.active { background: var(--primary); border-color: var(--primary); color: white; transform: translateY(-2px); }
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            color: white;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--subtext);
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0 auto 28px auto;
+        }
+
+        /* BARRA DI RICERCA LIVE */
+        .search-box {
+            max-width: 520px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 46px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: white;
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25);
+            background: rgba(15, 23, 42, 0.98);
+        }
+
+        /* FILTRI ORIZZONTALI PER SAAS */
+        .filters-wrapper {
+            max-width: 1200px;
+            margin: 25px auto 10px auto;
+            padding: 0 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .filters-wrapper::-webkit-scrollbar { display: none; }
+
+        .filters-container {
+            display: flex;
+            gap: 8px;
+            padding-bottom: 10px;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+        }
+
+        @media(min-width: 1024px) {
+            .filters-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        .filter-chip {
+            padding: 7px 14px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #94a3b8;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: 0.25s;
+            user-select: none;
+        }
+
+        .filter-chip:hover {
+            border-color: var(--primary-hover);
+            color: white;
+        }
+
+        .filter-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);
+        }
 
         /* GRIGLIA ARTICOLI */
-        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-        
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: 0.3s ease; display: flex; flex-direction: column; height: 100%; }
-        .card:hover { transform: translateY(-6px); border-color: var(--primary); box-shadow: 0 12px 25px rgba(0,0,0,0.5); }
-        .card-img { height: 200px; background-size: cover; background-position: center; position: relative; }
-        .card-tag { position: absolute; top: 12px; left: 12px; background: var(--primary); color: white; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; }
-        .card-saas { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.75); color: var(--accent); border: 1px solid var(--accent); font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; backdrop-filter: blur(4px); }
-        
-        .card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
-        .card-date { color: var(--subtext); font-size: 0.8rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-        .card-title { font-size: 1.2rem; font-weight: 700; color: white; line-height: 1.35; margin-bottom: 12px; }
-        .card-excerpt { color: var(--subtext); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
-        .card-link { color: var(--accent); font-weight: 700; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-top: auto; }
-        .card:hover .card-link { gap: 10px; }
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto 60px auto;
+            padding: 0 20px;
+            width: 100%;
+            flex: 1;
+        }
 
-        /* PAGINAZIONE */
-        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 50px; }
-        .page-btn { background: var(--card); border: 1px solid var(--border); color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; font-weight: 700; }
-        .page-btn:hover, .page-btn.active { background: var(--primary); border-color: var(--primary); }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
 
-        footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--border); color: var(--subtext); font-size: 0.85rem; }
+        /* CARD ARTICOLO */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            background: var(--card-hover);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(2, 132, 199, 0.15);
+        }
+
+        .card-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #030406;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.04);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(6, 7, 10, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            color: #38bdf8;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card-meta {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .card-excerpt {
+            color: var(--subtext);
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 14px;
+            font-size: 0.82rem;
+            color: var(--primary-hover);
+            font-weight: 700;
+        }
+
+        .card-footer span i {
+            transition: transform 0.25s;
+        }
+
+        .card:hover .card-footer span i {
+            transform: translateX(4px);
+        }
+
+        /* EMPTY STATE */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--subtext);
+        }
+        .empty-state i {
+            font-size: 3rem;
+            color: #334155;
+            margin-bottom: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            background: rgba(4, 5, 8, 0.92);
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #64748b;
+            backdrop-filter: blur(10px);
+        }
+
+        footer a { color: #94a3b8; }
+        footer a:hover { color: white; }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="https://rmstudio.app" class="logo">
-        RM <span>Studio</span>
-        <span class="badge-master">Master Blog Hub</span>
-    </a>
-    <div class="nav-links">
-        <a href="https://rmstudio.app" class="nav-btn"><i class="fas fa-arrow-left"></i> RMStudio.app</a>
-        <a href="https://portale.rmstudio.app/mobile.html" class="nav-btn primary" target="_blank"><i class="fas fa-rocket"></i> Sales Launcher</a>
-    </div>
-</header>
+    <!-- HEADER SENZA SALES LAUNCHER -->
+    <header>
+        <div class="brand-logo">
+            <i class="fas fa-layer-group" style="color:var(--primary);"></i>
+            RM Studio <span>Master Blog Hub</span>
+        </div>
+        <div class="header-links">
+            <a href="https://rmstudio.app/" class="btn-site" target="_blank">
+                <i class="fas fa-arrow-up-right-from-square"></i> RMStudio.app
+            </a>
+        </div>
+    </header>
 
-<div class="container">
-    <div class="hero">
-        <h1>L'Ecosistema dell'<span>AI B2B</span></h1>
-        <p>Guide pratiche, casi studio ed evoluzione tecnologica per professionisti, aziende e attività locali.</p>
-    </div>
-
-    <div class="controls-bar">
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-badge">
+            <i class="fas fa-bolt"></i> Ecosistema AI B2B
+        </div>
+        <h1>Tutta l'Innovazione di <span>RM Studio</span></h1>
+        <p>Guide pratiche, casi studio ed evoluzione tecnologica dell'Intelligenza Artificiale applicata a studi professionali, aziende e attività locali.</p>
+        
+        <!-- BARRA DI RICERCA LIVE -->
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Cerca tra le novità di tutti i SaaS (es. Dentisti, Video, E-Bike)...">
+            <input type="text" id="search-input" placeholder="Cerca per titolo, argomento o settore...">
         </div>
-        <div class="filters" id="saasFilters">
-            <button class="filter-btn active" onclick="filterSaaS('all')">Tutti i SaaS</button>
+    </section>
+
+    <!-- FILTRI ORIZZONTALI DINAMICI PER SAAS -->
+    <div class="filters-wrapper">
+        <div class="filters-container" id="filters-container">
+            <button class="filter-chip active" data-saas="all">Tutti i Prodotti</button>
+            <!-- I bottoni SaaS verranno estratti automaticamente dagli articoli -->
         </div>
     </div>
 
-    <div class="articles-grid" id="articlesGrid"></div>
-    <div class="pagination" id="paginationControls"></div>
-</div>
+    <!-- GRIGLIA ARTICOLI -->
+    <main class="main-container">
+        <div id="articles-grid" class="articles-grid">
+            <div class="empty-state">
+                <i class="fas fa-circle-notch fa-spin"></i>
+                <p>Caricamento articoli in corso...</p>
+            </div>
+        </div>
+    </main>
 
-<footer>
-    &copy; 2026 RM Studio di Riccardo Modena - Tutti i diritti riservati.
-</footer>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 RM Studio • Riccardo Modena — Tutti i diritti riservati.</p>
+        <p style="margin-top:6px;">
+            <a href="https://rmstudio.app/" target="_blank">Ecosistema Software</a> • 
+            <a href="https://rmstudio.app/public/privacy.html" target="_blank">Privacy Policy</a>
+        </p>
+    </footer>
 
-<script>
-    const itemsPerPage = 9;
-    let currentPage = 1;
-    let allPosts = [];
-    let filteredPosts = [];
+    <!-- SCRIPT CLIENT-SIDE: CARICAMENTO MANIFEST, FILTRI E RICERCA -->
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const grid = document.getElementById("articles-grid");
+            const searchInput = document.getElementById("search-input");
+            const filtersContainer = document.getElementById("filters-container");
+            
+            let allPosts = [];
+            let currentFilter = "all";
+            let currentSearch = "";
 
-    document.addEventListener("DOMContentLoaded", async function() {
-        try {
-            const res = await fetch('manifest.json');
-            allPosts = await res.json();
-            filteredPosts = allPosts;
-            buildFilters();
-            renderGrid();
-        } catch (e) {
-            console.error("Errore nel caricamento del manifest:", e);
-            document.getElementById('articlesGrid').innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#888;'>Nessun articolo trovato.</p>";
-        }
+            try {
+                // Lettura dinamica del file manifest.json aggiornato da n8n
+                const res = await fetch("manifest.json?v=" + new Date().getTime());
+                allPosts = await res.json();
 
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            filteredPosts = allPosts.filter(p => 
-                p.title.toLowerCase().includes(query) || 
-                p.excerpt.toLowerCase().includes(query) ||
-                p.category.toLowerCase().includes(query) ||
-                p.saas_label.toLowerCase().includes(query)
-            );
-            currentPage = 1;
-            renderGrid();
+                if (!Array.isArray(allPosts) || allPosts.length === 0) {
+                    grid.innerHTML = `
+                        <div class="empty-state">
+                            <i class="far fa-newspaper"></i>
+                            <h3>Nessun articolo pubblicato</h3>
+                            <p>Gli approfondimenti compariranno automaticamente al termine del prossimo ciclo di generazione.</p>
+                        </div>`;
+                    return;
+                }
+
+                // Generazione dinamica dei chip per ciascun SaaS presente nel manifest
+                const saasSet = new Map();
+                allPosts.forEach(post => {
+                    if (post.saas && post.saas_label) {
+                        saasSet.set(post.saas, post.saas_label);
+                    }
+                });
+
+                saasSet.forEach((label, slug) => {
+                    const btn = document.createElement("button");
+                    btn.className = "filter-chip";
+                    btn.setAttribute("data-saas", slug);
+                    btn.textContent = label;
+                    btn.addEventListener("click", () => {
+                        document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+                        btn.classList.add("active");
+                        currentFilter = slug;
+                        renderPosts();
+                    });
+                    filtersContainer.appendChild(btn);
+                });
+
+                // Gestione click sul chip "Tutti i Prodotti"
+                const allBtn = filtersContainer.querySelector('[data-saas="all"]');
+                allBtn.addEventListener("click", () => {
+                    document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+                    allBtn.classList.add("active");
+                    currentFilter = "all";
+                    renderPosts();
+                });
+
+                // Gestione ricerca live
+                searchInput.addEventListener("input", (e) => {
+                    currentSearch = e.target.value.toLowerCase().trim();
+                    renderPosts();
+                });
+
+                // Render iniziale
+                renderPosts();
+
+            } catch (err) {
+                console.error("Errore nel caricamento del manifest:", err);
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-triangle-exclamation" style="color:#ef4444;"></i>
+                        <p>Errore temporaneo nel caricamento del catalogo articoli.</p>
+                    </div>`;
+            }
+
+            function renderPosts() {
+                // Filtro combinato per categoria e testo cercato
+                const filtered = allPosts.filter(post => {
+                    const matchesSaaS = (currentFilter === "all") || (post.saas === currentFilter);
+                    const titleText = (post.title || "").toLowerCase();
+                    const excerptText = (post.excerpt || "").toLowerCase();
+                    const labelText = (post.saas_label || "").toLowerCase();
+                    const matchesSearch = !currentSearch || titleText.includes(currentSearch) || excerptText.includes(currentSearch) || labelText.includes(currentSearch);
+                    return matchesSaaS && matchesSearch;
+                });
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-search"></i>
+                            <h3>Nessun risultato trovato</h3>
+                            <p>Prova a cercare un termine differente o seleziona un altro prodotto.</p>
+                        </div>`;
+                    return;
+                }
+
+                grid.innerHTML = filtered.map(post => {
+                    const postUrl = post.url || `${post.saas}/${post.slug}.html`;
+                    const postImg = post.image || `${post.saas}/img/${post.slug}.jpg`;
+                    const postTitle = post.title || "Nuovo Approfondimento";
+                    const postExcerpt = post.excerpt ? (post.excerpt.length > 135 ? post.excerpt.substring(0, 135) + "..." : post.excerpt) : "Leggi l'articolo completo per approfondire.";
+                    const postLabel = post.saas_label || post.saas || "Insight";
+                    const postDate = post.date || "";
+
+                    return `
+                    <a href="${postUrl}" class="card">
+                        <div class="card-img-wrap">
+                            <img src="${postImg}" alt="${postTitle}" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'">
+                            <span class="card-badge">${postLabel}</span>
+                        </div>
+                        <div class="card-body">
+                            ${postDate ? `<div class="card-meta"><i class="far fa-calendar-alt"></i> ${postDate}</div>` : ''}
+                            <h2 class="card-title">${postTitle}</h2>
+                            <p class="card-excerpt">${postExcerpt}</p>
+                            <div class="card-footer">
+                                <span>Leggi Articolo <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>`;
+                }).join("");
+            }
         });
-    });
-
-    function buildFilters() {
-        const saasSet = new Set();
-        allPosts.forEach(p => saasSet.add(JSON.stringify({ id: p.saas, label: p.saas_label })));
-        
-        const filterContainer = document.getElementById('saasFilters');
-        saasSet.forEach(item => {
-            const parsed = JSON.parse(item);
-            const btn = document.createElement('button');
-            btn.className = 'filter-btn';
-            btn.textContent = parsed.label;
-            btn.onclick = () => filterSaaS(parsed.id, btn);
-            filterContainer.appendChild(btn);
-        });
-    }
-
-    function filterSaaS(saasId, btnElement) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        if (btnElement) btnElement.classList.add('active');
-        else document.querySelector('.filter-btn').classList.add('active');
-
-        if (saasId === 'all') {
-            filteredPosts = allPosts;
-        } else {
-            filteredPosts = allPosts.filter(p => p.saas === saasId);
-        }
-        currentPage = 1;
-        renderGrid();
-    }
-
-    function renderGrid() {
-        const grid = document.getElementById('articlesGrid');
-        grid.innerHTML = "";
-
-        const start = (currentPage - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        const pagePosts = filteredPosts.slice(start, end);
-
-        if (pagePosts.length === 0) {
-            grid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#888;'>Nessun articolo trovato.</p>";
-            document.getElementById('paginationControls').innerHTML = "";
-            return;
-        }
-
-        pagePosts.forEach(post => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <a href="${post.url}" style="display:flex; flex-direction:column; height:100%;">
-                    <div class="card-img" style="background-image: url('${post.image}')">
-                        <span class="card-tag">${post.category}</span>
-                        <span class="card-saas">${post.saas_label}</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-date"><i class="far fa-calendar-alt"></i> ${formatDate(post.date)}</div>
-                        <h2 class="card-title">${post.title}</h2>
-                        <p class="card-excerpt">${post.excerpt}</p>
-                        <div class="card-link">Leggi Articolo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-            `;
-            grid.appendChild(card);
-        });
-
-        renderPagination();
-    }
-
-    function formatDate(dateStr) {
-        const d = new Date(dateStr);
-        return d.toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
-    }
-
-    function renderPagination() {
-        const controls = document.getElementById('paginationControls');
-        controls.innerHTML = "";
-        const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
-
-        if (totalPages <= 1) return;
-
-        for (let i = 1; i <= totalPages; i++) {
-            const btn = document.createElement('button');
-            btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-            btn.textContent = i;
-            btn.onclick = () => {
-                currentPage = i;
-                renderGrid();
-                window.scrollTo({ top: 300, behavior: 'smooth' });
-            };
-            controls.appendChild(btn);
-        }
-    }
-</script>
-
+    </script>
 </body>
 </html>
