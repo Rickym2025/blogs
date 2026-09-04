@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <title>AURA Proximity Blog • Mesh &amp; Off-Grid Tech B2B | RM Studio</title>
+    
+    <link rel="icon" href="https://rmstudio.app/favicon.ico" sizes="any">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary: #06b6d4;
+            --accent: #38bdf8;
+            --bg: #050811;
+            --card: #0c1220;
+            --border: #1e293b;
+            --text: #ffffff;
+            --subtext: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 80px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        header {
+            background: rgba(5, 8, 17, 0.95); padding: 18px 30px; border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center;
+            backdrop-filter: blur(12px);
+        }
+        .logo { font-weight: 800; font-size: 1.2rem; text-transform: uppercase; color: white; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: flex; gap: 10px; align-items: center; }
+        .nav-btn { border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; color: #ccc; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .nav-btn:hover { border-color: var(--primary); color: white; background: rgba(6, 182, 212, 0.1); }
+        .nav-btn.primary { background: var(--primary); border-color: var(--primary); color: #050811; font-weight: 800; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hero { text-align: center; margin: 40px 0 30px 0; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 12px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.05rem; color: var(--subtext); max-width: 680px; margin: 0 auto; }
+
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: 0.3s ease; display: flex; flex-direction: column; height: 100%; }
+        .card:hover { transform: translateY(-6px); border-color: var(--primary); box-shadow: 0 12px 25px rgba(6, 182, 212, 0.2); }
+        .card-img { height: 200px; background-size: cover; background-position: center; position: relative; }
+        .card-tag { position: absolute; top: 12px; left: 12px; background: var(--primary); color: #050811; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; }
+        .card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-date { color: var(--subtext); font-size: 0.8rem; margin-bottom: 8px; }
+        .card-title { font-size: 1.2rem; font-weight: 700; color: white; line-height: 1.35; margin-bottom: 12px; }
+        .card-excerpt { color: var(--subtext); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+        .card-link { color: var(--accent); font-weight: 700; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-top: auto; }
+
+        .lead-bar {
+            position: fixed; bottom: 20px; right: 20px; z-index: 999;
+            background: #0f172a; border: 1px solid var(--primary);
+            border-radius: 16px; padding: 18px 22px; max-width: 380px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .lead-bar h4 { font-size: 0.98rem; color: white; display: flex; align-items: center; justify-content: space-between; }
+        .lead-bar p { font-size: 0.82rem; color: var(--subtext); }
+        .lead-form { display: flex; flex-direction: column; gap: 8px; margin-top: 5px; }
+        .lead-input { background: #1e293b; border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px; color: white; font-size: 0.85rem; outline: none; }
+        .lead-btn { background: var(--primary); color: #050811; border: none; padding: 9px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; cursor: pointer; }
+
+        footer { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid var(--border); color: var(--subtext); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="https://aura.rmstudio.app" class="logo">
+        <i class="fa-solid fa-satellite-dish" style="color:var(--primary);"></i>
+        AURA <span>Blog</span>
+    </a>
+    <div class="nav-links">
+        <a href="../index.html" class="nav-btn"><i class="fas fa-th"></i> Master Hub</a>
+        <a href="https://aura.rmstudio.app" class="nav-btn primary" target="_blank"><i class="fa-solid fa-crosshairs"></i> Apri Radar</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="hero">
+        <h1>Prossimità, Sicurezza &amp; <span>Tecnologia Off-Grid</span></h1>
+        <p>Guide, aggiornamenti normativi (D.Lgs 81/08), protocolli mesh e casi studio per viaggiare, lavorare e allenarsi in sicurezza senza internet.</p>
+    </div>
+
+    <div class="articles-grid" id="saasGrid"></div>
+</div>
+
+<div class="lead-bar" id="leadBar">
+    <h4>
+        <span>📡 Report Off-Grid &amp; Mesh 2026</span>
+        <i class="fas fa-times" style="cursor:pointer;" onclick="document.getElementById('leadBar').style.display='none'"></i>
+    </h4>
+    <p>Scarica la guida sulle comunicazioni in assenza di rete cellulare e sicurezza per lavoratori isolati.</p>
+    <form class="lead-form" onsubmit="submitLead(event)">
+        <input type="text" id="leadName" class="lead-input" placeholder="Il tuo Nome" required>
+        <input type="email" id="leadEmail" class="lead-input" placeholder="La tua Email" required>
+        <button type="submit" class="lead-btn">Scarica Report Gratis <i class="fas fa-paper-plane"></i></button>
+    </form>
+</div>
+
+<footer>
+    &copy; 2026 AURA Proximity by <a href="https://rmstudio.app" style="color:var(--accent);">RM Studio</a> - Tutti i diritti riservati.
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", async function() {
+        try {
+            const res = await fetch('posts.json');
+            const posts = await res.json();
+            const grid = document.getElementById('saasGrid');
+            grid.innerHTML = "";
+
+            if (!posts || posts.length === 0) {
+                grid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#888;'>In attesa del prossimo articolo automatico di AURA...</p>";
+                return;
+            }
+
+            posts.forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <a href="${post.url}" style="display:flex; flex-direction:column; height:100%;">
+                        <div class="card-img" style="background-image: url('${post.image}')">
+                            <span class="card-tag">${post.category || 'PROXIMITY'}</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-date"><i class="far fa-calendar-alt"></i> ${post.date}</div>
+                            <h2 class="card-title">${post.title}</h2>
+                            <p class="card-excerpt">${post.excerpt}</p>
+                            <div class="card-link">Leggi Articolo <i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+        } catch (e) {
+            console.error("Errore caricamento post AURA:", e);
+        }
+    });
+
+    function submitLead(e) {
+        e.preventDefault();
+        alert('🎉 Grazie per l\'iscrizione! Riceverai il report via email.');
+        document.getElementById('leadBar').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
