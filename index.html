@@ -7,6 +7,20 @@
     <title>RM Studio Master Blog Hub • Intelligenza Artificiale B2B</title>
     <meta name="description" content="L'hub centrale degli approfondimenti B2B di RM Studio. Casi studio, guide pratiche ed evoluzione tecnologica per professionisti e aziende.">
     
+    <!-- ─── GOOGLE ANALYTICS 4 (GTAG.JS) ─── -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KKJSLWGC6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1KKJSLWGC6');
+    </script>
+
+    <!-- ─── FAVICON UFFICIALE RM STUDIO ─── -->
+    <link rel="icon" href="https://rmstudio.app/public/favicon.ico" sizes="any">
+    <link rel="icon" href="https://rmstudio.app/public/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="https://rmstudio.app/public/loghi/logo_rm.png">
+
     <!-- Open Graph Social Tags -->
     <meta property="og:title" content="RM Studio Master Blog Hub • Intelligenza Artificiale B2B">
     <meta property="og:description" content="Guide pratiche, casi studio ed evoluzione tecnologica per professionisti, aziende e attività locali.">
@@ -22,27 +36,28 @@
             --primary: #0284c7;
             --primary-hover: #38bdf8;
             --accent: #f2d28b;
-            --bg-fallback: #06070a;
-            --card-bg: rgba(15, 17, 26, 0.88);
-            --card-hover: rgba(22, 26, 38, 0.95);
+            --bg-base: #040508;
+            --card-bg: rgba(13, 16, 26, 0.82);
+            --card-hover: rgba(20, 25, 40, 0.95);
             --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(2, 132, 199, 0.5);
+            --border-hover: rgba(56, 189, 248, 0.5);
             --text: #e2e8f0;
             --subtext: #94a3b8;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* SFONDO IMMERSIVO CON OVERLAY SCURO E PARALLASSE */
+        /* ─── SFONDO CYBER-GRID & RADIAL TECH GLOW (100% CSS - ZERO ERRORI 404) ─── */
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-fallback);
+            background-color: var(--bg-base);
             background-image: 
-                linear-gradient(180deg, rgba(6, 7, 10, 0.82) 0%, rgba(4, 5, 8, 0.94) 60%, rgba(3, 4, 6, 0.98) 100%),
-                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: cover;
+                radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.22) 0%, transparent 55%),
+                radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 15% 65%, rgba(242, 210, 139, 0.08) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
             background-attachment: fixed;
             color: var(--text);
             line-height: 1.6;
@@ -54,9 +69,9 @@
 
         a { text-decoration: none; color: inherit; transition: 0.25s; }
 
-        /* HEADER PULITO E SENZA STRUMENTI INTERNI */
+        /* HEADER */
         header {
-            background: rgba(6, 7, 10, 0.85);
+            background: rgba(6, 7, 12, 0.85);
             padding: 18px 24px;
             border-bottom: 1px solid var(--border);
             position: sticky;
@@ -80,9 +95,15 @@
             letter-spacing: 0.5px;
         }
 
+        .brand-logo img {
+            width: 24px;
+            height: 24px;
+            object-contain: contain;
+        }
+
         .brand-logo span {
             color: var(--accent);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             background: rgba(242, 210, 139, 0.12);
@@ -116,7 +137,7 @@
             background: rgba(242, 210, 139, 0.08);
         }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
             text-align: center;
             max-width: 860px;
@@ -163,7 +184,7 @@
             margin: 0 auto 28px auto;
         }
 
-        /* BARRA DI RICERCA LIVE */
+        /* BARRA RICERCA LIVE */
         .search-box {
             max-width: 520px;
             margin: 0 auto;
@@ -182,7 +203,7 @@
         .search-box input {
             width: 100%;
             padding: 14px 20px 14px 46px;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(13, 17, 28, 0.85);
             border: 1px solid var(--border);
             border-radius: 30px;
             color: white;
@@ -190,16 +211,16 @@
             font-family: inherit;
             outline: none;
             transition: 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .search-box input:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25);
-            background: rgba(15, 23, 42, 0.98);
+            background: rgba(13, 17, 28, 0.98);
         }
 
-        /* FILTRI ORIZZONTALI PER SAAS */
+        /* FILTRI SAAS */
         .filters-wrapper {
             max-width: 1200px;
             margin: 25px auto 10px auto;
@@ -226,7 +247,7 @@
 
         .filter-chip {
             padding: 7px 14px;
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(13, 17, 28, 0.7);
             border: 1px solid var(--border);
             border-radius: 20px;
             font-size: 0.78rem;
@@ -265,7 +286,6 @@
             gap: 24px;
         }
 
-        /* CARD ARTICOLO */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -274,14 +294,14 @@
             display: flex;
             flex-direction: column;
             transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
 
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--border-hover);
             background: var(--card-hover);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(2, 132, 199, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(2, 132, 199, 0.18);
         }
 
         .card-img-wrap {
@@ -289,7 +309,7 @@
             width: 100%;
             height: 200px;
             overflow: hidden;
-            background: #030406;
+            background: #020305;
         }
 
         .card-img {
@@ -307,7 +327,7 @@
             position: absolute;
             top: 14px;
             left: 14px;
-            background: rgba(6, 7, 10, 0.85);
+            background: rgba(6, 7, 12, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(8px);
             color: #38bdf8;
@@ -370,7 +390,6 @@
             transform: translateX(4px);
         }
 
-        /* EMPTY STATE */
         .empty-state {
             grid-column: 1 / -1;
             text-align: center;
@@ -383,10 +402,9 @@
             margin-bottom: 15px;
         }
 
-        /* FOOTER */
         footer {
             border-top: 1px solid var(--border);
-            background: rgba(4, 5, 8, 0.92);
+            background: rgba(4, 5, 8, 0.94);
             padding: 30px 20px;
             text-align: center;
             font-size: 0.82rem;
@@ -400,10 +418,10 @@
 </head>
 <body>
 
-    <!-- HEADER SENZA SALES LAUNCHER -->
+    <!-- HEADER -->
     <header>
         <div class="brand-logo">
-            <i class="fas fa-layer-group" style="color:var(--primary);"></i>
+            <img src="https://rmstudio.app/public/loghi/logo_rm.png" alt="RM Studio Logo" onerror="this.style.display='none'">
             RM Studio <span>Master Blog Hub</span>
         </div>
         <div class="header-links">
@@ -413,7 +431,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-badge">
             <i class="fas fa-bolt"></i> Ecosistema AI B2B
@@ -421,18 +439,17 @@
         <h1>Tutta l'Innovazione di <span>RM Studio</span></h1>
         <p>Guide pratiche, casi studio ed evoluzione tecnologica dell'Intelligenza Artificiale applicata a studi professionali, aziende e attività locali.</p>
         
-        <!-- BARRA DI RICERCA LIVE -->
+        <!-- BARRA RICERCA LIVE -->
         <div class="search-box">
             <i class="fas fa-search"></i>
             <input type="text" id="search-input" placeholder="Cerca per titolo, argomento o settore...">
         </div>
     </section>
 
-    <!-- FILTRI ORIZZONTALI DINAMICI PER SAAS -->
+    <!-- FILTRI ORIZZONTALI PER SAAS -->
     <div class="filters-wrapper">
         <div class="filters-container" id="filters-container">
             <button class="filter-chip active" data-saas="all">Tutti i Prodotti</button>
-            <!-- I bottoni SaaS verranno estratti automaticamente dagli articoli -->
         </div>
     </div>
 
@@ -467,7 +484,6 @@
             let currentSearch = "";
 
             try {
-                // Lettura dinamica del file manifest.json aggiornato da n8n
                 const res = await fetch("manifest.json?v=" + new Date().getTime());
                 allPosts = await res.json();
 
@@ -481,7 +497,6 @@
                     return;
                 }
 
-                // Generazione dinamica dei chip per ciascun SaaS presente nel manifest
                 const saasSet = new Map();
                 allPosts.forEach(post => {
                     if (post.saas && post.saas_label) {
@@ -503,7 +518,6 @@
                     filtersContainer.appendChild(btn);
                 });
 
-                // Gestione click sul chip "Tutti i Prodotti"
                 const allBtn = filtersContainer.querySelector('[data-saas="all"]');
                 allBtn.addEventListener("click", () => {
                     document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
@@ -512,13 +526,11 @@
                     renderPosts();
                 });
 
-                // Gestione ricerca live
                 searchInput.addEventListener("input", (e) => {
                     currentSearch = e.target.value.toLowerCase().trim();
                     renderPosts();
                 });
 
-                // Render iniziale
                 renderPosts();
 
             } catch (err) {
@@ -531,7 +543,6 @@
             }
 
             function renderPosts() {
-                // Filtro combinato per categoria e testo cercato
                 const filtered = allPosts.filter(post => {
                     const matchesSaaS = (currentFilter === "all") || (post.saas === currentFilter);
                     const titleText = (post.title || "").toLowerCase();
